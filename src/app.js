@@ -1,7 +1,19 @@
 import React from 'react';
 import {render} from 'react-dom';
+import {Provider} from 'react-redux';
+import {Router, Route, IndexRoute, browserHistory} from 'react-router';
 
-import Home from './components/home';
+import routes from './configs/routes';
+import configureStore from './store/index';
 
+import 'normalize.css';
+import './styles/main';
 
-render(<Home />, document.getElementById('app'));
+const store = configureStore();
+
+render(
+    <Provider store={store}>
+        <Router history={browserHistory} routes={routes} />
+    </Provider>,
+    document.getElementById('app')
+)

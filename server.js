@@ -10,8 +10,7 @@ var server = new WebpackDevServer(webpack(config), {
     hot: true,
     noInfo: true,
     stats: {
-        colors: true,
-        // chunks: false
+        colors: true
     },
     publicPath: 'http://127.0.0.1:3000/'
 });
