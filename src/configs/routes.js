@@ -1,7 +1,7 @@
 import React from 'react';
 import { Route, IndexRoute } from 'react-router';
 import Root from '../containers/root';
-import ArticleList from '../components/articleList';
+import Main from '../components/main';
 
 
 
@@ -9,12 +9,12 @@ const routes = [
     {
         path: '/',
         component: Root,
-        indexRoute: { component: ArticleList },
+        indexRoute: { component: Main },
         childRoutes: [
-            { path: 'all', component: ArticleList },
+            { path: 'all', component: Main },
             {
                 path: 'good',
-                component: ArticleList
+                component: Main
             }
         ]
     }

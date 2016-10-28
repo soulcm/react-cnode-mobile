@@ -1,3 +1,5 @@
+@import url('common');
+
 body {
     background-color: #e1e1e1;
     font-family: "Helvetica Neue","Luxi Sans","DejaVu Sans",Tahoma,"Hiragino Sans GB",STHeiti,sans-serif!important
@@ -10,7 +12,137 @@ header {
         width: 120px;
         height: 28px;
         display: block;
-        margin: 5px auto 0;
-        padding: 3px 0;
+        margin: 0 auto;
+        padding: 5px 0 3px;
+    }
+    input.search {
+        width: 206px;
+        border-radius: 15px;
+        margin: 0 auto;
+        display: block;
+        padding: 3px 5px 3px 22px;
+        border: 0;
+        color: #666;
+        font-weight: 400;
+        font-size: 1.3rem;
+        line-height: 1;
+        height: 20px;
+        font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+        background: url(../images/search.e53b380a.hashed.png) 4px 4px no-repeat #888;
+        transition: all .5s;
+        &:focus {
+            background-color: #fff;
+        }
+    }
+    ul.nav {
+        margin: 3px auto 0;
+        font-size: 1.3rem;
+        width: 90%;
+        li {
+            display: inline-block;
+            line-height: 20px;
+            a {
+                padding: 10px 15px;
+                color: #ccc;
+                display: inline-block;
+                text-align: center;
+                &:hover {
+                    color: #fff;
+                }
+            }
+        }
+    }
+}
+
+.main {
+    margin: 20px auto;
+    .panel {
+        margin: 0 5px;
+        nav {
+            background-color: #f6f6f6;
+            border-radius: 3px 3px 0 0;
+            padding: 6px 10px;
+            ul {
+                display: flex;
+                li {
+                    flex: 1;
+                    a {
+                        display: block;
+                        color: #80bd01;
+                        padding: 3px 4px;
+                        margin: 0 6px;
+                        text-align: center;
+                        &.selected {
+                            color: #fff;
+                            background-color: #80bd01;
+                            padding: 3px 4px;
+                            border-radius: 3px;
+                        }
+                    }
+                }
+            }
+        }
+        ul.list {
+            background-color: #fff;
+            border-radius: 0 0 3px 3px;
+            li {
+                border-bottom: 1px solid #f0f0f0;
+                padding: 10px;
+                a {
+                    display: block;
+                    .top {
+                        padding: 5px 0;
+                        display: flex;
+                        span.normal {
+                            flex: 0 0 auto; //TODO:soulcm 为什么最后一个值flex-basis默认不是auto,还得自己设置
+                            background-color: #e5e5e5;
+                            padding: 2px 4px;
+                            border-radius: 3px;
+                            color: #999;
+                            font-size: 1.2rem;
+                        }
+                        h3 {
+                            flex: 1 1 auto;
+                            margin-left: 5px;
+                            overflow: hidden;
+                            text-overflow: ellipsis;
+                            white-space: nowrap;
+                            font-size: 1.6rem;
+                        }
+                    }
+                    .bottom {
+                        display: flex;
+                        align-items: center;
+                        .author {
+                            flex: 0 0 auto;
+                            width: 38px;
+                            height: 38px;
+                            margin-right: 15px;
+                            border: 1px solid #ddd;
+                            border-radius: 50%;
+                            background-size: cover;
+                            background-image: url("https://avatars.githubusercontent.com/u/8791709?v=3&s=120");
+                        }
+                        .info {
+                            flex: 1 1 auto;
+                            p {
+                                display: flex;
+                                font-size: 1.2rem;
+                                color: #778087;
+                                span {
+                                    &:first-child {
+                                        flex: 1 1 auto;
+                                    }
+                                    &:last-child {
+                                        flex: 0 0 auto;
+                                    }
+
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
     }
 }

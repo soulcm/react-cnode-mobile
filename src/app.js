@@ -6,7 +6,7 @@ import {Router, Route, IndexRoute, browserHistory} from 'react-router';
 import routes from './configs/routes';
 import configureStore from './store/index';
 
-import 'normalize.css';
+// import 'normalize.css';
 import './styles/main';
 
 const store = configureStore();
