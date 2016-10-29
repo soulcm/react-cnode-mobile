@@ -1,6 +1,5 @@
-export default (state={}, action) => {
-    switch (action.type) {
-        default:
-            return state
-    }
-}
+import { combineReducers } from 'redux'
+
+import topicList from './topicList'
+
+export default combineReducers({topicList})

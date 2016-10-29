@@ -1,0 +1,214 @@
+html {
+  font-size: 62.5%;
+}
+body,
+ol,
+ul,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+th,
+td,
+dl,
+dd,
+form,
+fieldset,
+legend,
+input,
+textarea,
+select {
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+body {
+  font-size: 1.4rem;
+  background-color: #e1e1e1;
+  font-family: "Helvetica Neue", "Luxi Sans", "DejaVu Sans", Tahoma, "Hiragino Sans GB", STHeiti, sans-serif !important;
+}
+input[type=text]:focus,
+input[type=password]:focus,
+input[type=datetime]:focus,
+input[type=datetime-local]:focus,
+input[type=date]:focus,
+input[type=month]:focus,
+input[type=time]:focus,
+input[type=week]:focus,
+input[type=number]:focus,
+input[type=email]:focus,
+input[type=url]:focus,
+input[type=tel]:focus,
+input[type=color]:focus,
+input[type=search]:focus,
+textarea:focus {
+  border-color: rgba(82, 168, 236, 0.8);
+  outline: 0;
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(82, 168, 236, 0.6);
+}
+li {
+  list-style: none;
+}
+a {
+  text-decoration: none;
+}
+a:link {
+  text-decoration: none;
+}
+a:visited {
+  text-decoration: none;
+}
+a:hover {
+  text-decoration: none;
+}
+a:active {
+  text-decoration: none;
+}
+a:focus {
+  text-decoration: none;
+}
+body {
+  background-color: #e1e1e1;
+  font-family: "Helvetica Neue", "Luxi Sans", "DejaVu Sans", Tahoma, "Hiragino Sans GB", STHeiti, sans-serif !important;
+}
+header {
+  background-color: #444;
+  margin: 0 5px;
+}
+header .img-cnode {
+  width: 120px;
+  height: 28px;
+  display: block;
+  margin: 0 auto;
+  padding: 5px 0 3px;
+}
+header input.search {
+  width: 206px;
+  border-radius: 15px;
+  margin: 0 auto;
+  display: block;
+  padding: 3px 5px 3px 22px;
+  border: 0;
+  color: #666;
+  font-weight: 400;
+  font-size: 1.3rem;
+  line-height: 1;
+  height: 20px;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  background: url(../images/search.e53b380a.hashed.png) 4px 4px no-repeat #888;
+  transition: all .5s;
+}
+header input.search:focus {
+  background-color: #fff;
+}
+header ul.nav {
+  margin: 3px auto 0;
+  font-size: 1.3rem;
+  width: 90%;
+  display: flex;
+  justify-content: space-around;
+}
+header ul.nav li a {
+  padding: 12px 5px;
+  color: #ccc;
+  display: inline-block;
+  text-align: center;
+}
+header ul.nav li a:hover {
+  color: #fff;
+}
+.main {
+  margin: 20px auto;
+}
+.main .panel {
+  margin: 0 5px;
+}
+.main .panel nav {
+  background-color: #f6f6f6;
+  border-radius: 3px 3px 0 0;
+  padding: 6px 10px;
+}
+.main .panel nav ul {
+  display: flex;
+}
+.main .panel nav ul li {
+  flex: 1;
+}
+.main .panel nav ul li a {
+  display: block;
+  color: #80bd01;
+  padding: 3px 4px;
+  margin: 0 6px;
+  text-align: center;
+}
+.main .panel nav ul li a.selected {
+  color: #fff;
+  background-color: #80bd01;
+  padding: 3px 4px;
+  border-radius: 3px;
+}
+.main .panel ul.list {
+  background-color: #fff;
+  border-radius: 0 0 3px 3px;
+}
+.main .panel ul.list li {
+  border-bottom: 1px solid #f0f0f0;
+  padding: 10px;
+}
+.main .panel ul.list li a {
+  display: block;
+}
+.main .panel ul.list li a .top {
+  padding: 5px 0;
+  display: flex;
+}
+.main .panel ul.list li a .top span.normal {
+  flex: 0 0 auto;
+  background-color: #e5e5e5;
+  padding: 2px 4px;
+  border-radius: 3px;
+  color: #999;
+  font-size: 1.2rem;
+}
+.main .panel ul.list li a .top span.normal.color {
+  background-color: #80bd01;
+  color: #fff;
+}
+.main .panel ul.list li a .top h3 {
+  flex: 1 1 auto;
+  margin-left: 5px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-size: 1.6rem;
+}
+.main .panel ul.list li a .bottom {
+  display: flex;
+  align-items: center;
+}
+.main .panel ul.list li a .bottom .author {
+  flex: 0 0 auto;
+  width: 38px;
+  height: 38px;
+  margin-right: 15px;
+  border: 1px solid #ddd;
+  border-radius: 50%;
+  background-size: cover;
+}
+.main .panel ul.list li a .bottom .info {
+  flex: 1 1 auto;
+}
+.main .panel ul.list li a .bottom .info p {
+  display: flex;
+  font-size: 1.2rem;
+  color: #778087;
+}
+.main .panel ul.list li a .bottom .info p span:first-child {
+  flex: 1 1 auto;
+}
+.main .panel ul.list li a .bottom .info p span:last-child {
+  flex: 0 0 auto;
+}

@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
-import {Link} from 'react-router';
+import {Link, IndexLink} from 'react-router';
 
-import ArticleList from './articleList';
+import TopicList from '../containers/topicList';
 
 class Main extends Component {
     render() {
@@ -10,14 +10,14 @@ class Main extends Component {
                 <div className="panel">
                     <nav>
                         <ul>
-                            <li><Link to="/" className="selected">全部</Link></li>
-                            <li><Link to="/">精华</Link></li>
-                            <li><Link to="/">分享</Link></li>
-                            <li><Link to="/">问答</Link></li>
-                            <li><Link to="/">招聘</Link></li>
+                            <li><IndexLink to="/" activeClassName="selected">全部</IndexLink></li>
+                            <li><Link to="/good" activeClassName="selected">精华</Link></li>
+                            <li><Link to="/share" activeClassName="selected">分享</Link></li>
+                            <li><Link to="/ask" activeClassName="selected">问答</Link></li>
+                            <li><Link to="/job" activeClassName="selected">招聘</Link></li>
                         </ul>
                     </nav>
-                    <ArticleList />
+                    <TopicList location={this.props.location}/>
                 </div>
             </div>
         );

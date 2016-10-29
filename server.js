@@ -6,13 +6,19 @@ var port = 3000;
 
 //启动服务
 var server = new WebpackDevServer(webpack(config), {
+    publicPath: 'http://127.0.0.1:3000/',
     contentBase: path.resolve(__dirname),
     hot: true,
     noInfo: true,
     stats: {
         colors: true
     },
-    publicPath: 'http://127.0.0.1:3000/'
+    proxy: {
+        '/api/*': {
+            target: 'https://cnodejs.org/',
+            secure: false
+        }
+    },
 });
 
 server.listen(port, function(err) {
