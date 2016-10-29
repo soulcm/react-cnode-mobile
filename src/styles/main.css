@@ -76,7 +76,6 @@ body {
 }
 header {
   background-color: #444;
-  margin: 0 5px;
 }
 header .img-cnode {
   width: 120px;
@@ -121,10 +120,7 @@ header ul.nav li a:hover {
   color: #fff;
 }
 .main {
-  margin: 20px auto;
-}
-.main .panel {
-  margin: 0 5px;
+  margin: 20px auto 0;
 }
 .main .panel nav {
   background-color: #f6f6f6;

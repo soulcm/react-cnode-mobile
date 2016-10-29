@@ -7,6 +7,12 @@ import {topicTab} from '../constants/topic';
 import {formDate} from '../tools/index';
 
 class TopicList extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            page: 1
+        }
+    }
 
     componentWillMount() {
         this.props.getList({tab: this.props.location.pathname.slice(1)})
@@ -15,8 +21,25 @@ class TopicList extends Component {
     componentWillReceiveProps(nextProps) {
         if (nextProps.location.pathname !== this.props.location.pathname) {
             this.props.getList({tab: nextProps.location.pathname.slice(1)})
+            this.setState({page: 1})
         }
     }
+
+    componentDidMount() {
+        document.addEventListener('scroll', () => {
+            const y = document.body.scrollTop;
+            const documentH=document.documentElement.clientHeight;
+            const dom = document.querySelectorAll('.list li');
+            if (dom[dom.length - 1].offsetTop + dom[dom.length - 1].clientHeight <= y + documentH) {
+                this.props.updateList({
+                    tab: this.props.location.pathname.slice(1),
+                    page: this.state.page + 1
+                })
+                this.setState({page: this.state.page + 1})
+            }
+        }, false)
+    }
+
 
     render() {
         const list = this.props.list;

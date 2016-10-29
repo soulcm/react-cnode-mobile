@@ -22,7 +22,7 @@ var server = new WebpackDevServer(webpack(config), {
 });
 
 //将其他路由，全部返回index.html
-server.app.get('*', function (req,res) {
+server.use('*', function (req,res) {
     res.sendFile(__dirname + '/index.html')
 });
 

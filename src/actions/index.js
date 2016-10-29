@@ -13,3 +13,16 @@ export const getList = (data) => {
         })
     }
 }
+
+export const updateList = (data) => {
+    return (dispatch) => {
+        getTopicList(data).then((res) => {
+            if (res.success) {
+                return dispatch({
+                    type: types.UPDATE_LIST,
+                    data: res.data
+                })
+            }
+        })
+    }
+}
