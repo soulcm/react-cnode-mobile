@@ -41,12 +41,14 @@ const fetchApi = (cfg) => {
         fetchUrl += '?';
         for (let key in opts.body) {
             let value = opts.body[key];
+
             if (value instanceof Array) {
                 value = JSON.stringify(value);
             }
             fetchUrl += key + '=' + value + '&';
         }
         fetchUrl = fetchUrl.slice(0, -1);
+        delete opts.body;
     }
 
 

@@ -9,7 +9,7 @@ import {formDate} from '../tools/index';
 class TopicList extends Component {
 
     componentWillMount() {
-        this.props.getList()
+        this.props.getList({tab: this.props.location.pathname.slice(1)})
     }
 
     componentWillReceiveProps(nextProps) {
