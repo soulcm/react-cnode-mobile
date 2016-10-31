@@ -11,19 +11,7 @@ const routes = [
         path: '/',
         component: Root,
         indexRoute: { component: Main },
-        childRoutes: [{
-            path: 'share',
-            component: Main
-        }, {
-            path: 'good',
-            component: Main
-        }, {
-            path: 'ask',
-            component: Main
-        }, {
-            path: 'job',
-            component: Main
-        }]
+        childRoutes: []
     }
 ];
 

@@ -15,12 +15,12 @@ class TopicList extends Component {
     }
 
     componentWillMount() {
-        this.props.getList({tab: this.props.location.pathname.slice(1)})
+        this.props.getList({tab: this.props.location.query.tab || 'all'})
     }
 
     componentWillReceiveProps(nextProps) {
-        if (nextProps.location.pathname !== this.props.location.pathname) {
-            this.props.getList({tab: nextProps.location.pathname.slice(1)})
+        if (nextProps.location.query.tab !== this.props.location.query.tab) {
+            this.props.getList({tab: nextProps.location.query.tab})
             this.setState({page: 1})
         }
     }
@@ -32,14 +32,13 @@ class TopicList extends Component {
             const dom = document.querySelectorAll('.list li');
             if (dom[dom.length - 1].offsetTop + dom[dom.length - 1].clientHeight <= y + documentH) {
                 this.props.updateList({
-                    tab: this.props.location.pathname.slice(1),
+                    tab: this.props.location.query.tab || 'all',
                     page: this.state.page + 1
                 })
                 this.setState({page: this.state.page + 1})
             }
         }, false)
     }
-
 
     render() {
         const list = this.props.list;
