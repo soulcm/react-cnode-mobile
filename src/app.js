@@ -24,7 +24,7 @@ if (process.env.NODE_ENV === 'production') {
         <Provider store={store}>
             <div>
                 <Router history={browserHistory} routes={routes} />
-                <DevTools />
+                {/*<DevTools />*/}
             </div>
         </Provider>,
         document.getElementById('app')

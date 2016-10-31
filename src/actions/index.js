@@ -1,9 +1,9 @@
 import * as types from '../constants/actionTypes';
-import {getTopicList} from '../apis/publicApi';
+import {topicList, topicInfo} from '../apis/publicApi';
 
-export const getList = (data) => {
+export const getTopicList = (data) => {
     return (dispatch) => {
-        getTopicList(data).then((res) => {
+        topicList(data).then((res) => {
             if (res.success) {
                 return dispatch({
                     type: types.GET_LIST,
@@ -14,12 +14,25 @@ export const getList = (data) => {
     }
 }
 
-export const updateList = (data) => {
+export const updateTopicList = (data) => {
     return (dispatch) => {
-        getTopicList(data).then((res) => {
+        topicList(data).then((res) => {
             if (res.success) {
                 return dispatch({
                     type: types.UPDATE_LIST,
+                    data: res.data
+                })
+            }
+        })
+    }
+}
+
+export const getTopicInfo = () => {
+    return (dispatch) => {
+        topicInfo().then((res) => {
+            if (res.success) {
+                return dispatch({
+                    type: types.GET_TOPIC_INFO,
                     data: res.data
                 })
             }
