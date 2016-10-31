@@ -5,6 +5,7 @@ npm install
 
 //development
 npm run dev
+//有加入DevTools,若不需要,请自行在app.js中去掉
 
 //build
 npm run build
