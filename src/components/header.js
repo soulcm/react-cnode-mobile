@@ -7,7 +7,7 @@ class Header extends Component {
     render() {
         return (
             <header>
-                <Link className="img-cnode" to="/"><img src={cnodeImg} alt="cnode"/></Link>
+                <Link className="img-cnode" to="/"><img src={`/${cnodeImg}`} alt="cnode"/></Link>
                 <input className="search" type="text" />
                 <ul className="nav">
                     <li><Link to="/">首页</Link></li>

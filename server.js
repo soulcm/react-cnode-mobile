@@ -19,6 +19,7 @@ var server = new WebpackDevServer(webpack(config), {
             secure: false
         }
     },
+    historyApiFallback: true
 });
 
 //将其他路由，全部返回index.html

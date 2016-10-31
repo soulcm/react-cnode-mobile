@@ -12,33 +12,51 @@ class TopicList extends Component {
         this.state = {
             page: 1
         }
+        this.handlePage = this.handlePage.bind(this);
     }
 
     componentWillMount() {
-        this.props.getList({tab: this.props.location.query.tab || 'all'})
+        if (!this.props.list.length) {
+            this.props.getList({tab: this.props.location.query.tab || 'all'})
+        } else {
+            this.setState({
+                page: Math.ceil(this.props.list.length / 10)
+            })
+        }
     }
 
     componentWillReceiveProps(nextProps) {
         if (nextProps.location.query.tab !== this.props.location.query.tab) {
-            this.props.getList({tab: nextProps.location.query.tab})
+            this.props.getList({tab: nextProps.location.query.tab || 'all'})
             this.setState({page: 1})
         }
     }
 
     componentDidMount() {
-        document.addEventListener('scroll', () => {
-            const y = document.body.scrollTop;
-            const documentH=document.documentElement.clientHeight;
-            const dom = document.querySelectorAll('.list li');
-            if (dom[dom.length - 1].offsetTop + dom[dom.length - 1].clientHeight <= y + documentH) {
-                this.props.updateList({
-                    tab: this.props.location.query.tab || 'all',
-                    page: this.state.page + 1
-                })
-                this.setState({page: this.state.page + 1})
-            }
-        }, false)
+        document.addEventListener('scroll', this.handlePage, false);
+        if (this.props.list.length) {
+            document.body.scrollTop = document.documentElement.scrollTop = sessionStorage.getItem('scrollTop') || 0;
+            sessionStorage.removeItem('scrollTop');
+        }
     }
+
+    componentWillUnmount() {
+        document.removeEventListener('scroll', this.handlePage)
+    }
+
+    handlePage() {
+        const y = document.body.scrollTop || document.documentElement.scrollTop;
+        const documentH = document.documentElement.clientHeight;
+        const dom = document.querySelectorAll('.list li');
+        if (dom[dom.length - 1].offsetTop + dom[dom.length - 1].clientHeight <= y + documentH) {
+            this.props.updateList({
+                tab: this.props.location.query.tab || 'all',
+                page: this.state.page + 1
+            })
+            this.setState({ page: this.state.page + 1 })
+        }
+    }
+
 
     render() {
         const list = this.props.list;
@@ -57,7 +75,7 @@ class TopicList extends Component {
                     }
                     return (
                         <li key={item.id}>
-                            <Link>
+                            <Link to={`/topic/${item.id}`}>
                                 <div className="top">
                                     <span className={tabCls}>{topicTab[tab]}</span>
                                     <h3 title={item.title}>{item.title}</h3>
@@ -83,6 +101,10 @@ class TopicList extends Component {
             </ul>
         );
     }
+}
+
+TopicList.contextTypes = {
+    router: React.PropTypes.object.isRequired
 }
 
 export default TopicList;
