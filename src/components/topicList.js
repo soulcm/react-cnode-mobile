@@ -5,6 +5,7 @@ import classNames from 'classnames';
 import {getTopicList} from '../apis/publicApi';
 import {topicTab} from '../constants/topic';
 import {formDate} from '../tools/index';
+import storage from '../configs/storage';
 
 class TopicList extends Component {
     constructor(props) {
@@ -35,8 +36,15 @@ class TopicList extends Component {
     componentDidMount() {
         document.addEventListener('scroll', this.handlePage, false);
         if (this.props.list.length) {
-            document.body.scrollTop = document.documentElement.scrollTop = sessionStorage.getItem('scrollTop') || 0;
-            sessionStorage.removeItem('scrollTop');
+            let scroll = 0;
+            try {
+                scroll = sessionStorage.getItem('scrollTop') || 0;
+                sessionStorage.removeItem('scrollTop');
+            } catch(e) {
+                scroll = storage.getItem('scrollTop') || 0;
+                storage.removeItem('scrollTop');
+            }
+            document.body.scrollTop = document.documentElement.scrollTop = scroll;
         }
     }
 
